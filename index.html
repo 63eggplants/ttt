@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Bookmark</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <nav class="side-navbar">
+      <a class="search" href="/search/index.html">Search</a>
+      <a class="home" href="#">Home</a>
+      <a class="shared" href="/shared/index.html">Shared</a>
+    </nav>
+    <section class="main">
+      <nav class="top-navbar">
+        <div class="dropdown">
+          <button data-add="tf" class="add-tf-btn add-btn">
+            <i data-add="tf" class="fas fa-plus"></i>
+          </button>
+          <div data-add="tf" class="dropdown-content">
+            <button data-add="topic" class="add-topic-btn add-btn" data>
+              Topic
+            </button>
+            <button data-add="folder" class="add-folder-btn add-btn">
+              Folder
+            </button>
+          </div>
+        </div>
+        <button class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </nav>
+      <h1>home</h1>
+
+      <div class="topics">
+        <div class="topic">
+          <div class="topic-bar">
+            <h2>To Study</h2>
+            <div>
+              <button data-add="page" class="add-page-btn add-btn">
+                <i data-add="page" class="fas fa-plus"></i>
+              </button>
+
+              <button data-add="edit-topic" class="edit-topic-btn">
+                <i data-add="edit-topic" class="fas fa-cog"></i>
+              </button>
+            </div>
+          </div>
+          <h3 class="unread-page">읽지 않음</h3>
+          <div class="page">
+            <div>
+              <img class="page__favicon" src="../images/favicon1.png" alt="" />
+              <div class="page__info">
+                <p class="page__title">리눅스 디렉토리 구조</p>
+                <span class="page__url">https://webdir.tistory.com/101</span>
+                <span class="page__createdAt">1분 전</span>
+              </div>
+            </div>
+            <div class="page__btns">
+              <button class="page__check-btn">
+                <i class="fas fa-check"></i>
+              </button>
+              <button class="page__delete-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="page">
+            <div>
+              <img class="page__favicon" src="../images/favicon2.png" alt="" />
+              <div class="page__info">
+                <p class="page__title">[CSS 방법론] BEM 방식</p>
+                <span class="page__url">https://nykim.work/15</span>
+                <span class="page__createdAt">2일 전</span>
+              </div>
+            </div>
+            <div class="page__btns">
+              <button class="page__check-btn">
+                <i class="fas fa-check"></i>
+              </button>
+              <button class="page__delete-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <h3 class="read-page">읽은 페이지</h3>
+          <div class="page">
+            <div>
+              <img class="page__favicon" src="../images/favicon3.png" alt="" />
+              <div class="page__info">
+                <p class="page__title">
+                  2-1. 음악 검색용 API 찾아보기(Last.fm api)
+                </p>
+                <span class="page__url"
+                  >https://jae04099.tistory.com/entry/2-%EC%9D%8C%EC%95%85-%EA%B2%80%EC%83%89%EC%9A%A9-API-%EC%B0%BE%EC%95%84%EB%B3%B4%EA%B8%B0Lastfm-api</span
+                >
+                <span class="page__createdAt">5분 전</span>
+              </div>
+            </div>
+            <div class="page__btns">
+              <button class="page__check-btn">
+                <i class="fas fa-check"></i>
+              </button>
+              <button class="page__delete-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+      </div>
+    </section>
+
+    <div data-add="topic" class="add-topic-popup popup">
+      <form>
+        <h2>New Topic</h2>
+        <p><input type="text" name="name" placeholder="name" /></p>
+        <p><input type="text" name="remark" placeholder="remark" /></p>
+        <p>
+          <select name="type" id="">
+            <option value="0">Public</option>
+            <option value="1">Protected</option>
+            <option value="2">Private</option>
+          </select>
+        </p>
+        <button class="submit-btn">submit</button>
+      </form>
+      <button class="cancel-btn">cancel</button>
+    </div>
+
+    <div data-add="folder" class="add-folder-popup popup">
+      <form id="folder-form">
+        <h2>New Folder</h2>
+        <input type="text" name="name" placeholder="name" />
+        <button class="submit-btn">submit</button>
+      </form>
+      <button class="cancel-btn">cancel</button>
+    </div>
+
+    <!-- data-btn-popup으로 이름 바꾸기 -->
+    <div data-add="page" class="add-page-popup popup">
+      <form>
+        <h2>New Page</h2>
+        <input type="text" name="url" placeholder="url" />
+        <button class="submit-btn">submit</button>
+      </form>
+      <button class="cancel-btn">cancel</button>
+    </div>
+
+    <div data-add="edit-topic" class="edit-topic-popup popup">
+      <form>
+        <h2>Edit Topic</h2>
+        <p><input type="text" name="name" value="To Study" /></p>
+        <p>
+          <input type="text" name="remark" value="things that have to study" />
+        </p>
+        <p>
+          <select name="type" id="">
+            <option value="0">Public</option>
+            <option value="1">Protected</option>
+            <option value="2" selected>Private</option>
+          </select>
+        </p>
+        <button class="submit-btn">submit</button>
+      </form>
+      <button class="cancel-btn">cancel</button>
+    </div>
+
+    <script>
+      fetch('https://okky.kr/article/433730?note=1572915').then(res => {
+        console.log(res);
+      });
+      window.addEventListener('click', event => {
+        if (event.target.hasAttribute('data-add')) {
+          const type = event.target.dataset.add;
+          const a = document.querySelector(`div[data-add=${type}]`);
+          console.log(type, a);
+          a.classList.add('show');
+        }
+      });
+
+      // 폴더 추가 후 사이드바에 추가
+      const folderForm = document.getElementById('folder-form');
+      const sideNavBar = document.querySelector('.side-navbar');
+      const folderInput = document.querySelector('#folder-form > input');
+
+      folderForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const a = document.createElement('a');
+        const newFolder = folderInput.value;
+        folderInput.value = '';
+
+        a.classList.add(newFolder);
+        a.textContent = newFolder;
+        a.setAttribute('href', `/${newFolder}/index.html`);
+        sideNavBar.appendChild(a);
+      });
+
+      const dropdownContent = document.querySelector('.dropdown-content');
+
+      window.addEventListener('click', event => {
+        if (
+          !event.target.matches('.add-tf-btn') &&
+          !event.target.matches('.add-tf-btn > i')
+        ) {
+          dropdownContent.classList.remove('show');
+        }
+      });
+
+      window.addEventListener('click', event => {
+        if (event.target.classList.contains('cancel-btn')) {
+          const popup = event.target.parentNode;
+          popup.classList.remove('show');
+          return;
+        }
+        if (event.target.classList.contains('submit-btn')) {
+          const popup = event.target.parentNode.parentNode;
+          popup.classList.remove('show');
+        }
+      });
+    </script>
+  </body>
+</html>
